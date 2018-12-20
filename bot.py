@@ -94,4 +94,4 @@ async def reboot(ctx):
     await bot.logout()
     #werkt
     
-client.run(os.environ.get('TOKEN'))
+bot.run(os.environ.get('TOKEN'))

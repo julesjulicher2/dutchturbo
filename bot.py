@@ -30,6 +30,11 @@ async def on_ready():
     print(bot.user.id)
     print(discord.__version__)
     await loop()
+
+@bot.event
+async def on_command_error(message, error):
+    embed=discord.Embed(title="Command Not Found", description="Whoops! kan dat niet vinden probeer `dt!help`", color=0xFF0000)
+    await bot.send_message(error.message.channel, embed=embed)
 #----------------------------------------------------------------------------------------------
 #----------------------------------------------------------------------------------------------
 

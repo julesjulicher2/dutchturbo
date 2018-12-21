@@ -111,11 +111,17 @@ async def leave(ctx):
 @bot.command(pass_context=True)
 async def help(ctx):
     author = ctx.message.author
-    embed = discord.Embed(
-        colour = 0xff0000)
+    embed = discord.Embed(colour = 0xff0000)
     embed.set_author(name="help")
-    embed.add_field(name="reboot", value="dev en bepaalde personen only", inline = False)
-    embed.add_field(name="serverinfo", value="geeft informatie over de server", inline = True)
+    embed.add_field(name="serverinfo", value="geeft informatie over de server", inline = False)
+    embed.add_field(name="info", value="geeft informatie over een persoon. gebruik dt!info @persoon", inline = False)
+    embed.add_field(name="ping", value="pong", inline=False)
+    embed.add_field(name="cookie", value="tegen de honger", inline=False)
+    embed.add_field(name="join", value="de bot joint de voice channel waar je in zit", inline=False)
+    embed.add_field(name="leave", value="bot verlaat je voice channel", inline=False)
+    #_____________________________________
+    embed.add_field(name="reboot", value="precies wat het zegt, **mod only**", inline=False)
+    embed.add_field(name="remove_cmd", value="verwijdert een cmd, **mod only**", inline=False)
     await bot.send_message(author, embed=embed)
     
 bot.run(os.environ.get('TOKEN'))

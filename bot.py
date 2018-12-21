@@ -95,4 +95,18 @@ async def reboot(ctx):
     await bot.logout()
     #werkt
     
+@bot.command(pass_context=True)
+async def join(ctx):
+    channel = ctx.message.author.voice.voice_channel
+    await bot.say("ay okay :ok_hand:")
+    await bot.join_voice_channel(channel)
+
+@bot.command(pass_context=True)
+async def leave(ctx):
+    server = ctx.message.server
+    voice_bot = bot.voice_client_in(server)
+    await bot.say(":ok_hand: :dash:")
+    await voice_bot.disconnect()
+
+    
 bot.run(os.environ.get('TOKEN'))

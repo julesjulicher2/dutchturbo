@@ -107,6 +107,15 @@ async def leave(ctx):
     voice_bot = bot.voice_client_in(server)
     await bot.say(":ok_hand: :dash:")
     await voice_bot.disconnect()
-
+    
+@bot.command(pass_context=True)
+async def help(ctx):
+    author = ctx.message.author
+    embed = discord.Embed(
+        colour = 0xff0000)
+    embed.set_author(name="help")
+    embed.add_field(name="reboot", value="dev en bepaalde personen only", inline = False)
+    embed.add_field(name="serverinfo", value="geeft informatie over de server", inline = True)
+    await bot.send_message(author, embed=embed)
     
 bot.run(os.environ.get('TOKEN'))

@@ -88,7 +88,7 @@ async def serverlist(ctx):
         embed = discord.Embed(title="All servers", description="lists all servers the bot is in.", color=0xff0000)
         tmp = 1
         for i in bot.servers:
-            embed.add_field(name=str(tmp), value=i.name, inline=False)
+            embed.add_field(name=str(tmp), value=i.name, inline=True)
             tmp += 1
         await bot.say(embed=embed)
 #----------------------------------------------------------------------------------------------------------------

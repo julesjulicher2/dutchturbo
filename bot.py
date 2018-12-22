@@ -41,14 +41,14 @@ async def on_command_error(message, error):
 @bot.command(pass_context=True)
 async def invite(ctx):
     embed = discord.Embed(colour = 0xff0000)
-    embed.add_field(title="invite")
+    embed.add_field(title="invite", value="invite van bot")
     await bot.say("https://discordapp.com/api/oauth2/authorize?client_id=520988858700005386&permissions=8&scope=bot")
-    
+    await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
 async def cookie(ctx,):
     await bot.say(":cookie:")
-
+    
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
     embed = discord.Embed(title="{}'s info".format(user.name), description="Here is what i could find.", color=0xFF0000)

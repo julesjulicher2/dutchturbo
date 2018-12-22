@@ -107,7 +107,7 @@ async def join(ctx):
 @bot.command(pass_context=True)
 async def play(ctx, url):
 	server = ctx.message.server
-	voice_client = client.voice_client_in(server)
+	voice_bot = bot.voice_client_in(server)
 	players[server.id]
 	player.start()
     

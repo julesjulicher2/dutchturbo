@@ -6,10 +6,13 @@ import asyncio
 import time
 import random
 import os
+import youtube_dl
 
 Client = discord.Client
 bot = commands.Bot(command_prefix="dt!")
 bot.remove_command('help')
+
+player = {}
 
 async def loop():
     while True:
@@ -100,7 +103,14 @@ async def join(ctx):
     channel = ctx.message.author.voice.voice_channel
     await bot.say("ay okay :ok_hand:")
     await bot.join_voice_channel(channel)
-
+    
+@bot.command(pass_context=True)
+async def play(ctx, url):
+	server = ctx.message.server
+	voice_client = client.voice_client_in(server)
+	players[server.id]
+	player.start()
+    
 @bot.command(pass_context=True)
 async def leave(ctx):
     server = ctx.message.server
@@ -119,6 +129,7 @@ async def help(ctx):
     embed.add_field(name="cookie", value="tegen de honger", inline=False)
     embed.add_field(name="join", value="de bot joint de voice channel waar je in zit", inline=False)
     embed.add_field(name="leave", value="bot verlaat je voice channel", inline=False)
+    embed.add_field(name="play", value="speelt een liedje van yt, gebruik play urlhere", inline=False")
     #_____________________________________
     embed.add_field(name="reboot", value="precies wat het zegt, **mod only**", inline=False)
     embed.add_field(name="remove_cmd", value="verwijdert een cmd, **mod only**", inline=False)

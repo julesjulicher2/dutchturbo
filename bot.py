@@ -14,8 +14,9 @@ bot.remove_command('help')
 
 players = {}
 queues = {}
-def check_queues[id] != []:
-    if queues[id].pop(0)
+def check_queue(id):
+    if queues[id] != []:
+	player= queues[id].pop(0)
 	players[id] = player
 	player.start()
 

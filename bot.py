@@ -16,7 +16,7 @@ players = {}
 queues = {}
 def check_queue(id):
     if queues[id] != []:
-        player= queues[id].pop(0)
+        player = queues[id].pop(0)
         players[id] = player
         player.start()
 

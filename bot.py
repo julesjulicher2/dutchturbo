@@ -12,7 +12,7 @@ Client = discord.Client
 bot = commands.Bot(command_prefix="dt!")
 bot.remove_command('help')
 
-player = {}
+players = {}
 
 async def loop():
     while True:
@@ -106,10 +106,10 @@ async def join(ctx):
     
 @bot.command(pass_context=True)
 async def play(ctx, url):
-	server = ctx.message.server
+    server = ctx.message.server
 	voice_bot = bot.voice_client_in(server)
 	player = await voice_bot.create_ytdl_player(url)
-	players[server.id]
+	players[server.id] = player
 	player.start()
     
 @bot.command(pass_context=True)

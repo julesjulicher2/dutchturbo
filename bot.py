@@ -165,15 +165,15 @@ async def reboot(ctx):
 							 
 @bot.command(pass_context=True)
 async def remove_cmd(ctx, cmd):
-    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey):
+    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey:
         return await bot.say("No perms from developers")
     await bot.say("cmd is verwijdert :ok_hand:")
     bot.remove_command(cmd)
 
 @bot.command(pass_context=True)
 async def serverlist(ctx):
-    if ctx.message.author.server_permissions.administrator:
-        embed = discord.Embed(title="All servers", description="lists all servers the bot is in.", color=0xff0000)
+    if ctx.message.author.id == julesjulicher2:
+        embed = discord.Embed(title="All servers", description="lists alle servers waar de bot in is.", color=0xff0000)
         tmp = 1
         for i in bot.servers:
             embed.add_field(name=str(tmp), value=i.name, inline=False)

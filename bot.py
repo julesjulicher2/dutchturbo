@@ -13,6 +13,11 @@ bot = commands.Bot(command_prefix="dt!")
 bot.remove_command('help')
 
 players = {}
+def check_queues[id] != []:
+    if queues[id].pop(0)
+	players[id] = player
+	player.start()
+
 
 async def loop():
     while True:
@@ -84,7 +89,7 @@ async def join(ctx):
 async def play(ctx, url):
 	server = ctx.message.server
 	voice_bot = bot.voice_client_in(server)
-	player = await voice_bot.create_ytdl_player(url)
+	player = await voice_bot.create_ytdl_player(url, after=lambda: check_queue(server.id))
 	players[server.id] = player
 	player.start()
     
@@ -104,11 +109,25 @@ async def pause(ctx):
 async def resume(ctx):
 	id = ctx.message.server.id
 	players[id].resume()
+
 @bot.command(pass_context=True)
 async def stop(ctx):
 	id = ctx.message.server.id
 	players[id].stop()
 	await bot.say(":ok_hand: ay okay")
+	
+@bot.command(pass_context=True)
+async def add(ctx, url):
+    server = ctx.message.server
+	voice_bot = bot.voice_client_in(server)
+	player = await voice_bot.create_ytdl_player(url)
+	
+	if server.id in queues:
+	    queues[server.id].append(player)
+	else:
+	    queues[server.id] = [player]
+	await bot.say("video toegevoegd")
+
 	
 #_______________________________________
 @bot.command(pass_context=True)

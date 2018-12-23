@@ -170,7 +170,7 @@ julesjulicher2 = "266540652865519617"
 jeffrey = "343013889283457025"
 @bot.command(pass_context=True)
 async def reboot(ctx):
-    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey:
+    if not (ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey:
         return await bot.say(":x: geen toegang")
     await bot.say("ay okay :ok_hand:")
     await bot.logout()
@@ -179,7 +179,7 @@ julesjulicher2 = "266540652865519617"
 jeffrey = "343013889283457025"
 @bot.command(pass_context=True)
 async def remove_cmd(ctx, cmd):
-    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey:
+    if not (ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey):
         return await bot.say("No perms from developers")
     await bot.say("cmd is verwijdert :ok_hand:")
     bot.remove_command(cmd)

@@ -170,7 +170,7 @@ julesjulicher2 = "266540652865519617"
 jeffrey = "343013889283457025"
 @bot.command(pass_context=True)
 async def reboot(ctx):
-    if not (ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey:
+    if not (ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey):
         return await bot.say(":x: geen toegang")
     await bot.say("ay okay :ok_hand:")
     await bot.logout()

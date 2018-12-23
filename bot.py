@@ -13,6 +13,7 @@ bot = commands.Bot(command_prefix="dt!")
 bot.remove_command('help')
 
 players = {}
+queues = {}
 def check_queues[id] != []:
     if queues[id].pop(0)
 	players[id] = player

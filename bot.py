@@ -39,12 +39,7 @@ async def on_command_error(message, error):
     embed=discord.Embed(title="Command Not Found", description="Whoops! kan dat niet vinden probeer `dt!help`", color=0xFF0000)
     await bot.send_message(error.message.channel, embed=embed)
 #----------------------------------------------------------------------------------------------
-#----------------------------------------------------------------------------------------------
-
-@bot.command(pass_context=True)
-async def cookie(ctx,):
-    await bot.say(":cookie:")
-    
+#info cmds
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
     embed = discord.Embed(title="{}'s info".format(user.name), description="Here is what i could find.", color=0xFF0000)
@@ -68,18 +63,16 @@ async def serverinfo(ctx):
     embed.add_field(name="Channels", value=len(ctx.message.server.channels))
     embed.set_thumbnail(url=ctx.message.server.icon_url)
     await bot.say(embed=embed)
+#--------------------------------------------------------------------------------------------------
+#overige cmds
+@bot.command(pass_context=True)
+async def ping(ctx):
+        t1 = time.perf_counter()
+        tmp = await bot.say("pinging...")
+        t2 = time.perf_counter()
+        await bot.say("Ping: {}ms".format(round((t2-t1)*1000)))
+        await bot.delete_message(tmp)
 
-@bot.command(pass_context=True)
-async def talk(ctx):
-    await bot.say("hello whats your name?")
-#-----------------------------------------------------------------------------------------------------------------
-@bot.command(pass_context=True)
-async def remove_cmd(ctx, cmd):
-    if not (ctx.message.author.id == '266540652865519617' or ctx.message.author.id == '343013889283457025'):
-        return await bot.say("No perms from developers")
-    await bot.say("cmd has bin removed :ok_hand:")
-    bot.remove_command(cmd)
-#-----------------------------------------------------------------------------------------------------------------
 @bot.command(pass_context=True)
 async def serverlist(ctx):
     if ctx.message.author.server_permissions.administrator:
@@ -89,15 +82,7 @@ async def serverlist(ctx):
             embed.add_field(name=str(tmp), value=i.name, inline=True)
             tmp += 1
         await bot.say(embed=embed)
-#----------------------------------------------------------------------------------------------------------------
-@bot.command(pass_context=True)
-async def reboot(ctx):
-    if not (ctx.message.author.id == '266540652865519617' or ctx.message.author.id == '343013889283457025'):
-        return await bot.say(":x: You **Must** Be Bot Owner Or Developer or someone who has acces")
-    await bot.say("ay okay :ok_hand:")
-    await bot.logout()
-    #werkt
-    
+#music cmds___________________________________________________
 @bot.command(pass_context=True)
 async def join(ctx):
     channel = ctx.message.author.voice.voice_channel
@@ -126,14 +111,74 @@ async def help(ctx):
     embed.set_author(name="help")
     embed.add_field(name="serverinfo", value="geeft informatie over de server", inline = False)
     embed.add_field(name="info", value="geeft informatie over een persoon. gebruik dt!info @persoon", inline = False)
-    embed.add_field(name="ping", value="pong", inline=False)
-    embed.add_field(name="cookie", value="tegen de honger", inline=False)
+    embed.add_field(name="ping", value="x aantal ms vertraging", inline=False)
     embed.add_field(name="join", value="de bot joint de voice channel waar je in zit", inline=False)
     embed.add_field(name="leave", value="bot verlaat je voice channel", inline=False)
     embed.add_field(name="play", value="speelt een liedje van yt, gebruik play urlhere", inline=False)
-    #_____________________________________
-    embed.add_field(name="reboot", value="precies wat het zegt, **mod only**", inline=False)
-    embed.add_field(name="remove_cmd", value="verwijdert een cmd, **mod only**", inline=False)
+    #admin cmds
+	embed.add_field(name="serverlist", value="dev only", inline=False)
+	embed.add_field(name="kick", value="kick de gementionde persoon **mod only**", inline=False)
+    embed.add_field(name="reboot", value="precies wat het zegt, **dev only**", inline=False)
+    embed.add_field(name="remove_cmd", value="verwijdert een cmd, **dev only**", inline=False)
     await bot.send_message(author, embed=embed)
+#----------------------------------------------------------------------------------------------------------------
+#admin cmds
+#------------------------------------------------------
+#ids
+julesjulicher2 = "266540652865519617"
+demon333 = "304335595637964811"
+onheil = "210016781790740481"
+freshness = "371390873889669120"
+deadmau5= "272370438334578690"
+optic = "261489812807090176"
+Greyaligator = "125251854811660288"
+gideon = "225615881009496064"
+mast3beer = "325614257544757249"
+ikayser = "268813802391207937"
+lordhugo = "267061903035990017"
+helpmai = "274953456085893121"
+exia = "262731316615708683"
+draynor = "311210142249123840"
+heiligekip = "306437934838579200"
+nneo = "146037858212249600"
+thabaws = "344868565209448448"
+jeffrey = "343013889283457025"
+curious = "297725476821008384"
+#____________________________________________-
+@bot.command(pass_context = True)
+async def kick(ctx, member: discord.Member):
+    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == demon333 or ctx.message.author.id == onheil or ctx.message.author.id == freshness or ctx.message.author.id == deadmau5 or ctx.message.author.id == optic or ctx.message.author.id == Greyaligator or ctx.message.author.id == gideon or ctx.message.author.id == mast3beer or ctx.message.author.id == ikayser or ctx.message.author.id == lordhugo or ctx.message.author.id == helpmai or ctx.message.author.id == exia or ctx.message.author.id == draynor or ctx.message.author.id == heiligekip or ctx.message.author.id == nneo or ctx.message.author.id == thabaws or ctx.message.author.id == jeffrey or ctx.message.author.id == curious:
+        try:
+            await bot.say(":boot: bye!""{}".format(member.mention))
+            await bot.kick(member)
+        except discord.errors.Forbidden:
+            await bot.say(":x: error kan niet doen!, controleer of de bot boven de rang staat van de gene die je kickt")
+    else:
+        await bot.say("geen toegang")
+	
+@bot.command(pass_context=True)
+async def reboot(ctx):
+    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey:
+        return await bot.say(":x: geen toegang)
+    await bot.say("ay okay :ok_hand:")
+    await bot.logout()
+							 
+@bot.command(pass_context=True)
+async def remove_cmd(ctx, cmd):
+    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey):
+        return await bot.say("No perms from developers")
+    await bot.say("cmd is verwijdert :ok_hand:")
+    bot.remove_command(cmd)
+
+@bot.command(pass_context=True)
+async def serverlist(ctx):
+    if ctx.message.author.server_permissions.administrator:
+        embed = discord.Embed(title="All servers", description="lists all servers the bot is in.", color=0xff0000)
+        tmp = 1
+        for i in bot.servers:
+            embed.add_field(name=str(tmp), value=i.name, inline=False)
+            tmp += 1
+        await bot.say(embed=embed)
+   
     
 bot.run(os.environ.get('TOKEN'))

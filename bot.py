@@ -116,6 +116,8 @@ async def help(ctx):
     embed.add_field(name="join", value="de bot joint de voice channel waar je in zit", inline=False)
     embed.add_field(name="leave", value="bot verlaat je voice channel", inline=False)
     embed.add_field(name="play", value="speelt een liedje van yt, gebruik play urlhere", inline=False)
+	embed.add_field(name="pause", value="pauzeert het liedje", inline=False)
+	add.field_field(name="resume", value="liedje gaat verder", inline=False)
     #admin cmds
     embed.add_field(name="serverlist", value="dev only", inline=False)
     embed.add_field(name="kick", value="kick de gementionde persoon **mod only**", inline=False)

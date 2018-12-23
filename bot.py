@@ -121,14 +121,14 @@ async def stop(ctx):
 @bot.command(pass_context=True)
 async def add(ctx, url):
     server = ctx.message.server
-	voice_bot = bot.voice_client_in(server)
-	player = await voice_bot.create_ytdl_player(url)
+    voice_bot = bot.voice_client_in(server)
+    player = await voice_bot.create_ytdl_player(url)
 	
-	if server.id in queues:
-	    queues[server.id].append(player)
-	else:
-	    queues[server.id] = [player]
-	await bot.say("video toegevoegd")
+    if server.id in queues:
+        queues[server.id].append(player)
+    else:
+        queues[server.id] = [player]
+    await bot.say("video toegevoegd")
 
 	
 #_______________________________________

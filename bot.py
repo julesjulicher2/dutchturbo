@@ -108,6 +108,7 @@ async def resume(ctx):
 async def stop(ctx):
 	id = ctx.message.server.id
 	players[id].stop()
+	await bot.say(":ok_hand: ay okay")
 	
 #_______________________________________
 @bot.command(pass_context=True)

@@ -94,7 +94,17 @@ async def leave(ctx):
     voice_bot = bot.voice_client_in(server)
     await bot.say(":ok_hand: :dash:")
     await voice_bot.disconnect()
-    
+
+@bot.command(pass_context=True)
+async def pause(ctx):
+	id = ctx.message.server.id
+	players[id].pause()
+
+@bot.command(pass_context=True)
+async def resume(ctx):
+	id = ctx.message.server.id
+	players[id].resume()
+#_______________________________________
 @bot.command(pass_context=True)
 async def help(ctx):
     author = ctx.message.author

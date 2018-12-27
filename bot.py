@@ -79,6 +79,12 @@ async def ping(ctx):
         t2 = time.perf_counter()
         await bot.say("Ping: {}ms".format(round((t2-t1)*1000)))
         await bot.delete_message(tmp)
+@bot.command(pass_context=True)
+async def expcalc(ctx):
+    embed = discord.Embed(discription="je handige rekenmachine", color=0xff0000)
+    embed.add_field(name="klik maar", inline=False)
+    bot.say("https://www.lunagang.nl/calculators/")
+    bot.say(embed=embed)
 
 #music cmds___________________________________________________
 @bot.command(pass_context=True)
@@ -146,6 +152,7 @@ async def help(ctx):
     embed.add_field(name="pause", value="pauzeert het liedje", inline=False)
     embed.add_field(name="resume", value="liedje gaat verder", inline=False)
     embed.add_field(name="stop", value="stopt de muziek", inline=False)
+    embed.add_field(name="xpcalc", value="geeft een link naar de lunagang xp calculator", inline=False)
     #admin cmds
     embed.add_field(name="serverlist", value="dev only", inline=False)
     embed.add_field(name="kick", value="kick de gementionde persoon **mod only**", inline=False)

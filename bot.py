@@ -24,13 +24,13 @@ def check_queue(id):
 async def loop():
     while True:
         await bot.change_presence(game=discord.Game(name="prefix = dt!", type=2))
-        await asyncio.sleep(15)
+        await asyncio.sleep(5)
         await bot.change_presence(game=discord.Game(name="vergeet niet te cappen", type=2))
-        await asyncio.sleep(15)
+        await asyncio.sleep(5)
         await bot.change_presence(game=discord.Game(name="happy runescaping", type=2))
-        await asyncio.sleep(15)
+        await asyncio.sleep(5)
         await bot.change_presence(game=discord.Game(name="geniet van de dag", type=2))
-        await asyncio.sleep(15)
+        await asyncio.sleep(5)
 
 
 @bot.event

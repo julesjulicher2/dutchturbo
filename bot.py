@@ -29,7 +29,7 @@ async def loop():
         await asyncio.sleep(15)
         await bot.change_presence(game=discord.Game(name="happy runescaping", type=2))
         await asyncio.sleep(15)
-        await bot.change_presence(game=discord.Game(name="Gelukkig oud en nieuw", type=2))
+        await bot.change_presence(game=discord.Game(name="geniet van de dag", type=2))
         await asyncio.sleep(15)
 
 

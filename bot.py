@@ -41,6 +41,15 @@ async def on_ready():
     print(discord.__version__)
     await loop()
 
+@bot.event
+async def on_message(message):
+    await bot.process_commands(message)
+    author = message.author
+    channel = message.channel
+    content = message.content
+    server = message.server
+    print("{} channel is {}\n{}: {}".format(server, channel, author, content))
+
 
 @bot.event
 async def on_command_error(message, error):
@@ -226,10 +235,3 @@ async def serverlist(ctx):
 
     
 bot.run(os.environ.get('TOKEN'))
-@bot.event
-async def on_message(message):
-    author = message.author
-    channel = message.channel
-    content = message.content
-    server = message.server
-    print("{} channel is {}\n{}: {}".format(server, channel, author, content))

@@ -43,8 +43,10 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     author = message.author
+    channel = message.channel
     content = message.content
-    print("{}: {}".format(author, content))
+    server = message.server
+    print("{} channel is {}\n{}: {}".format(server, channel, author, content))
 
 @bot.event
 async def on_command_error(message, error):

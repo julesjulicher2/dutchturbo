@@ -49,7 +49,7 @@ async def on_message(message):
     content = message.content
     server = message.server
     with open("log.txt", "w") as f:
-    	f.write("{} channel is {}\n{}: {}".format(server, channel, author, content))
+        f.write("{} channel is {}\n{}: {}".format(server, channel, author, content))
 
 
 @bot.event

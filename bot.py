@@ -40,6 +40,11 @@ async def on_ready():
     print(bot.user.id)
     print(discord.__version__)
     await loop()
+@bot.event
+async def on_message(message):
+    author = message.author
+    content = message.content
+    print("{}: {}".format(author, content))
 
 @bot.event
 async def on_command_error(message, error):

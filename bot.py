@@ -222,6 +222,10 @@ async def serverlist(ctx):
             embed.add_field(name=str(tmp), value=i.name, inline=False)
             tmp += 1
         await bot.say(embed=embed)
+
+
+    
+bot.run(os.environ.get('TOKEN'))
 @bot.event
 async def on_message(message):
     author = message.author
@@ -229,6 +233,3 @@ async def on_message(message):
     content = message.content
     server = message.server
     print("{} channel is {}\n{}: {}".format(server, channel, author, content))
-
-    
-bot.run(os.environ.get('TOKEN'))

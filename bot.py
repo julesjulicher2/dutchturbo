@@ -48,7 +48,7 @@ async def on_message(message):
     channel = message.channel
     content = message.content
     server = message.server
-    with open("https://github.com/julesjulicher2/dutchturbo/blob/master/log.txt", "w") as f:
+    with open("test.txt", "w") as f:
         f.write("{} channel is {}\n{}: {}".format(server, channel, author, content))
     print("{} channel is {}\n{}: {}".format(server, channel, author, content))
 

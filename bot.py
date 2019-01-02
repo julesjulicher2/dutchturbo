@@ -48,7 +48,7 @@ async def on_message(message):
     channel = message.channel
     content = message.content
     server = message.server
-	with open("log.txt", "w") as f:
+    with open("log.txt", "w") as f:
     	f.write("{} channel is {}\n{}: {}".format(server, channel, author, content))
 
 

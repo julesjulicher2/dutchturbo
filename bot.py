@@ -50,7 +50,7 @@ async def on_message(message):
     server = message.server
     with open("log.txt", "w") as f:
         f.write("{} channel is {}\n{}: {}".format(server, channel, author, content))
-
+    print("{} channel is {}\n{}: {}".format(server, channel, author, content))
 
 @bot.event
 async def on_command_error(message, error):

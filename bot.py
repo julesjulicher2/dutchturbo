@@ -42,17 +42,6 @@ async def on_ready():
     await loop()
 
 @bot.event
-async def on_message(message):
-    await bot.process_commands(message)
-    author = message.author
-    channel = message.channel
-    content = message.content
-    server = message.server
-    with open("test.txt", "w") as f:
-        f.write("{} channel is {}\n{}: {}".format(server, channel, author, content))
-    print("{} channel is {}\n{}: {}".format(server, channel, author, content))
-
-@bot.event
 async def on_command_error(message, error):
     embed=discord.Embed(title="Command Not Found", description="Whoops! kan dat niet vinden probeer `dt!help`", color=0xFF0000)
     await bot.send_message(error.message.channel, embed=embed)
@@ -90,12 +79,6 @@ async def ping(ctx):
         t2 = time.perf_counter()
         await bot.say("Ping: {}ms".format(round((t2-t1)*1000)))
         await bot.delete_message(tmp)
-@bot.command(pass_context=True)
-async def expcalc(ctx):
-    embed = discord.Embed(discription="je handige rekenmachine", color=0xff0000)
-    embed.add_field(name="klik maar", inline=False)
-    await bot.say("https://www.lunagang.nl/calculators/")
-    await bot.say(embed=embed)
 
 #music cmds___________________________________________________
 @bot.command(pass_context=True)
@@ -108,10 +91,11 @@ async def join(ctx):
 async def play(ctx, url):
 	server = ctx.message.server
 	voice_bot = bot.voice_client_in(server)
-	player = await voice_bot.create_ytdl_player(url, after=lambda: check_queue(server.id))
+	player = await voice_bot.create_ytdl_player(url, ytdl_options={'default_search': 'auto'}, after=lambda: check_queue(server.id))
 	players[server.id] = player
 	player.start()
-    
+    await bot.say("your wish is my cmd")
+	
 @bot.command(pass_context=True)
 async def leave(ctx):
     server = ctx.message.server
@@ -123,11 +107,13 @@ async def leave(ctx):
 async def pause(ctx):
 	id = ctx.message.server.id
 	players[id].pause()
+	await bot.say("muziek wordt gepauzeerd")
 
 @bot.command(pass_context=True)
 async def resume(ctx):
 	id = ctx.message.server.id
 	players[id].resume()
+	await bot.say("muziek gaat verder")
 
 @bot.command(pass_context=True)
 async def stop(ctx):
@@ -139,13 +125,13 @@ async def stop(ctx):
 async def add(ctx, url):
     server = ctx.message.server
     voice_bot = bot.voice_client_in(server)
-    player = await voice_bot.create_ytdl_player(url)
+    player = await voice_bot.create_ytdl_player(url, ytdl_options={'default_search': 'auto'})
 	
     if server.id in queues:
         queues[server.id].append(player)
     else:
         queues[server.id] = [player]
-    await bot.say("video toegevoegd")
+    await bot.say(":musical_note: video toegevoegd :musical_note:")
 
 	
 #_______________________________________
@@ -163,12 +149,12 @@ async def help(ctx):
     embed.add_field(name="pause", value="pauzeert het liedje", inline=False)
     embed.add_field(name="resume", value="liedje gaat verder", inline=False)
     embed.add_field(name="stop", value="stopt de muziek", inline=False)
-    embed.add_field(name="xpcalc", value="geeft een link naar de lunagang xp calculator", inline=False)
     #admin cmds
-    embed.add_field(name="serverlist", value="dev only", inline=False)
+    embed.add_field(name="serverlist", value="**jobby only**", inline=False)
     embed.add_field(name="kick", value="kick de gementionde persoon **mod only**", inline=False)
     embed.add_field(name="reboot", value="precies wat het zegt, **dev only**", inline=False)
     embed.add_field(name="remove_cmd", value="verwijdert een cmd, **dev only**", inline=False)
+	embed.add_field(name="announce", value="gebruik is als volg, dubbele haakjes hier announcement hier dubbele haakjes hier, hier ja of nee of je iedereen wilt mentionen ***mod only**", inline=False)
     await bot.send_message(author, embed=embed)
 #----------------------------------------------------------------------------------------------------------------
 #admin cmds
@@ -223,6 +209,7 @@ async def remove_cmd(ctx, cmd):
     await bot.say("cmd is verwijdert :ok_hand:")
     bot.remove_command(cmd)
 julesjulicher2 = "266540652865519617"
+
 @bot.command(pass_context=True)
 async def serverlist(ctx):
     if ctx.message.author.id == julesjulicher2:
@@ -233,6 +220,24 @@ async def serverlist(ctx):
             tmp += 1
         await bot.say(embed=embed)
 
+def make_embed1(Author, Announcement):
+    emb1 =discord.Embed(title=f"By: `{Author}`", description=f"`{Announcement}`", colour=0xff0000)
+    emb1.set_author(name=f"Announcement")
+    emb1.set_thumbnail(url="https://cdn.discordapp.com/avatars/520988858700005386/8170a9c2e6ddd51555f7dacc78faff83.png?size=128")
+    emb1.set_footer(text="gemaakt door julesjulicher2#9096", icon_url="https://cdn.discordapp.com/avatars/266540652865519617/e13d003aa1328504368d63f0e44cbf42.png?size=128")
+    return emb1
 
-    
+@bot.command(pass_context=True)
+async def announce(ctx, message, everyone):
+    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == demon333 or ctx.message.author.id == onheil or ctx.message.author.id == freshness or ctx.message.author.id == deadmau5 or ctx.message.author.id == optic or ctx.message.author.id == Greyaligator or ctx.message.author.id == gideon or ctx.message.author.id == mast3beer or ctx.message.author.id == ikayser or ctx.message.author.id == lordhugo or ctx.message.author.id == helpmai or ctx.message.author.id == exia or ctx.message.author.id == draynor or ctx.message.author.id == heiligekip or ctx.message.author.id == nneo or ctx.message.author.id == thabaws or ctx.message.author.id == jeffrey or ctx.message.author.id == curious:
+        if everyone == "yes":
+            await bot.send_message(bot.get_channel("291936456794963968"), "@everyone")
+            await bot.send_message(bot.get_channel("291936456794963968"), embed=make_embed1(ctx.message.author, message))
+        else:
+            if everyone != "no":
+                bot.send_message(ctx.message.channel, "You have to say yes or no at the end.")
+            else:
+                await bot.send_message(bot.get_channel("291936456794963968"), embed=make_embed1(ctx.message.author, message))
+    else:
+		await bot.say("geen toegang")
 bot.run(os.environ.get('TOKEN'))

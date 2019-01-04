@@ -88,6 +88,9 @@ async def ping(ctx):
         t2 = time.perf_counter()
         await bot.say("Ping: {}ms".format(round((t2-t1)*1000)))
         await bot.delete_message(tmp)
+@bot.command(pass_context=True)
+async def changelog(ctx):
+    await bot.say("in de laatste update heeft julesjulicher#9096 de volgende dingen toegevoegd of aangepast: announcement is toegevoegd, kijk in botcommand pinned msges voor gebruik. alle muziek cmds zijn geupdate je kun nu zoeken maar het werkt nog niet helemaal corrrect ") + ("voor gerbuik van muziek zoeken doe je dubbele haakjes muziek hier dubbele haakjes")
 
 #music cmds___________________________________________________
 @bot.command(pass_context=True)
@@ -158,6 +161,7 @@ async def help(ctx):
     embed.add_field(name="pause", value="pauzeert het liedje", inline=False)
     embed.add_field(name="resume", value="liedje gaat verder", inline=False)
     embed.add_field(name="stop", value="stopt de muziek", inline=False)
+    embed.add_field(name="changelog", value="geeft je een lijst van de laatste update", inline=False)
     #admin cmds
     embed.add_field(name="serverlist", value="**jobby only**", inline=False)
     embed.add_field(name="kick", value="kick de gementionde persoon **mod only**", inline=False)

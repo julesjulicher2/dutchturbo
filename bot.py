@@ -94,8 +94,8 @@ async def ping(ctx):
 async def expcalc(ctx):
     embed = discord.Embed(discription="je handige rekenmachine", color=0xff0000)
     embed.add_field(name="klik maar", inline=False)
-    bot.say("https://www.lunagang.nl/calculators/")
-    bot.say(embed=embed)
+    await bot.say("https://www.lunagang.nl/calculators/")
+    await bot.say(embed=embed)
 
 #music cmds___________________________________________________
 @bot.command(pass_context=True)

@@ -89,12 +89,12 @@ async def join(ctx):
     
 @bot.command(pass_context=True)
 async def play(ctx, url):
-	server = ctx.message.server
-	voice_bot = bot.voice_client_in(server)
-	player = await voice_bot.create_ytdl_player(url, ytdl_options={'default_search': 'auto'}, after=lambda: check_queue(server.id))
-	players[server.id] = player
-	player.start()
-        await bot.say("your wish is my cmd")
+    server = ctx.message.server
+    voice_bot = bot.voice_client_in(server)
+    player = await voice_bot.create_ytdl_player(url, ytdl_options={'default_search': 'auto'}, after=lambda: check_queue(server.id))
+    players[server.id] = player
+    player.start()
+    await bot.say("your wish is my cmd")
 	
 @bot.command(pass_context=True)
 async def leave(ctx):
@@ -105,21 +105,21 @@ async def leave(ctx):
 
 @bot.command(pass_context=True)
 async def pause(ctx):
-	id = ctx.message.server.id
-	players[id].pause()
-	await bot.say("muziek wordt gepauzeerd")
+    id = ctx.message.server.id
+    players[id].pause()
+    await bot.say("muziek wordt gepauzeerd")
 
 @bot.command(pass_context=True)
 async def resume(ctx):
-	id = ctx.message.server.id
-	players[id].resume()
-	await bot.say("muziek gaat verder")
+    id = ctx.message.server.id
+    players[id].resume()
+    await bot.say("muziek gaat verder")
 
 @bot.command(pass_context=True)
 async def stop(ctx):
-	id = ctx.message.server.id
-	players[id].stop()
-	await bot.say(":ok_hand: ay okay")
+    id = ctx.message.server.id
+    players[id].stop()
+    await bot.say(":ok_hand: ay okay")
 	
 @bot.command(pass_context=True)
 async def add(ctx, url):
@@ -154,7 +154,7 @@ async def help(ctx):
     embed.add_field(name="kick", value="kick de gementionde persoon **mod only**", inline=False)
     embed.add_field(name="reboot", value="precies wat het zegt, **dev only**", inline=False)
     embed.add_field(name="remove_cmd", value="verwijdert een cmd, **dev only**", inline=False)
-	embed.add_field(name="announce", value="gebruik is als volg, dubbele haakjes hier announcement hier dubbele haakjes hier, hier ja of nee of je iedereen wilt mentionen ***mod only**", inline=False)
+    embed.add_field(name="announce", value="gebruik is als volg, dubbele haakjes hier announcement hier dubbele haakjes hier, hier ja of nee of je iedereen wilt mentionen ***mod only**", inline=False)
     await bot.send_message(author, embed=embed)
 #----------------------------------------------------------------------------------------------------------------
 #admin cmds
@@ -191,8 +191,7 @@ async def kick(ctx, member: discord.Member):
     else:
         await bot.say("geen toegang")
 
-julesjulicher2 = "266540652865519617"
-jeffrey = "343013889283457025"
+
 @bot.command(pass_context=True)
 async def reboot(ctx):
     if not (ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey):
@@ -200,15 +199,13 @@ async def reboot(ctx):
     await bot.say("ay okay :ok_hand:")
     await bot.logout()
 
-julesjulicher2 = "266540652865519617"
-jeffrey = "343013889283457025"
 @bot.command(pass_context=True)
 async def remove_cmd(ctx, cmd):
     if not (ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey):
         return await bot.say("No perms from developers")
     await bot.say("cmd is verwijdert :ok_hand:")
     bot.remove_command(cmd)
-julesjulicher2 = "266540652865519617"
+
 
 @bot.command(pass_context=True)
 async def serverlist(ctx):
@@ -239,5 +236,5 @@ async def announce(ctx, message, everyone):
             else:
                 await bot.send_message(bot.get_channel("291936456794963968"), embed=make_embed1(ctx.message.author, message))
     else:
-		await bot.say("geen toegang")
+	await bot.say("geen toegang")
 bot.run(os.environ.get('TOKEN'))

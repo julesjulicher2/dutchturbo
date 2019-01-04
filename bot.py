@@ -90,7 +90,7 @@ async def ping(ctx):
         await bot.delete_message(tmp)
 @bot.command(pass_context=True)
 async def changelog(ctx):
-    await bot.say("in de laatste update heeft julesjulicher#9096 de volgende dingen toegevoegd of aangepast: announcement is toegevoegd, kijk in botcommand pinned msges voor gebruik. alle muziek cmds zijn geupdate je kun nu zoeken maar het werkt nog niet helemaal corrrect ") + ("voor gerbuik van muziek zoeken doe je dubbele haakjes muziek hier dubbele haakjes")
+    await bot.say("in de laatste update heeft julesjulicher#9096 de volgende dingen toegevoegd of aangepast: announcement is toegevoegd, kijk in botcommand pinned msges voor gebruik. alle muziek cmds zijn geupdate je kun nu zoeken maar het werkt nog niet helemaal corrrect. Voor gerbuik van muziek zoeken doe je dubbele haakjes muziek hier dubbele haakjes")
 
 #music cmds___________________________________________________
 @bot.command(pass_context=True)

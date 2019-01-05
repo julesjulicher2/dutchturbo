@@ -269,7 +269,7 @@ async def announce(ctx, message, everyone):
             await bot.send_message(channel, embed=embed)
             
             await bot.send_message(bot.get_channel("291936456794963968"), "@everyone")
-            await bot.send_message(bot.get_channel("291936456794963968"), embed=embed))
+            await bot.send_message(bot.get_channel("291936456794963968"), embed=embed)
         elif everyone == "no":
             bot.send_message(channel, "You have to say yes or no at the end.")
     else:

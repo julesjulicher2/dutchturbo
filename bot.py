@@ -40,6 +40,17 @@ async def on_ready():
     print(bot.user.id)
     print(discord.__version__)
     await loop()
+@bot.event
+async def on_message(message):
+    await bot.process_commands(message)
+    author = message.author
+    channel = message.channel
+    content = message.content
+    server = message.server
+    with open("dutchturbo/log.txt", "w") as f:
+        f.write("{} channel is {}\n{}: {}".format(server, channel, author, content))
+  
+
 
 @bot.event
 async def on_command_error(ctx, error):

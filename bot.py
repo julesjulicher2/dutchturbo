@@ -116,7 +116,7 @@ async def ping(ctx):
         await bot.delete_message(tmp)
 @bot.command(pass_context=True)
 async def changelog(ctx):
-    await bot.say("in de laatste update heeft julesjulicher#9096 de volgende dingen toegevoegd of aangepast: announcement is toegevoegd, kijk in botcommand pinned msges voor gebruik. alle muziek cmds zijn geupdate je kun nu zoeken maar het werkt nog niet helemaal corrrect. Voor gerbuik van muziek zoeken doe je dubbele haakjes muziek hier dubbele haakjes")
+    await bot.say("help is aangepast")
 
 #music cmds___________________________________________________
 @bot.command(pass_context=True)
@@ -175,7 +175,7 @@ async def add(ctx, url):
 #_______________________________________
 @bot.command(pass_context=True)
 async def help(ctx):
-    if ctx.message.author.id == demon333 or ctx.message.author.id == onheil or ctx.message.author.id == freshness or ctx.message.author.id == deadmau5 or ctx.message.author.id == optic or ctx.message.author.id == Greyaligator or ctx.message.author.id == gideon or ctx.message.author.id == mast3beer or ctx.message.author.id == ikayser or ctx.message.author.id == lordhugo or ctx.message.author.id == helpmai or ctx.message.author.id == exia or ctx.message.author.id == draynor or ctx.message.author.id == heiligekip or ctx.message.author.id == nneo or ctx.message.author.id == thabaws or ctx.message.author.id == jeffrey or ctx.message.author.id == curious:
+    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == demon333 or ctx.message.author.id == onheil or ctx.message.author.id == freshness or ctx.message.author.id == deadmau5 or ctx.message.author.id == optic or ctx.message.author.id == Greyaligator or ctx.message.author.id == gideon or ctx.message.author.id == mast3beer or ctx.message.author.id == ikayser or ctx.message.author.id == lordhugo or ctx.message.author.id == helpmai or ctx.message.author.id == exia or ctx.message.author.id == draynor or ctx.message.author.id == heiligekip or ctx.message.author.id == nneo or ctx.message.author.id == thabaws or ctx.message.author.id == jeffrey or ctx.message.author.id == curious:
         author = ctx.message.author
         embed = discord.Embed(colour = 0xff0000)
         embed.set_author(name="help")
@@ -252,10 +252,10 @@ async def serverlist(ctx):
         await bot.say(embed=embed)
 
 def make_embed1(Author, Announcement):
-    emb1 =discord.Embed(title=f"By: `{Author}`", description=f"`{Announcement}`", colour=0xff0000)
-    emb1.set_author(name=f"Announcement")
+    emb1 =discord.Embed(title=description=f"`{Announcement}`", colour=0xff0000)
+    emb1.set_author(name=f"By: `{Author}`")
     emb1.set_thumbnail(url="https://cdn.discordapp.com/avatars/520988858700005386/8170a9c2e6ddd51555f7dacc78faff83.png?size=128")
-    emb1.set_footer(text="gemaakt door julesjulicher2#9096", icon_url="https://cdn.discordapp.com/avatars/266540652865519617/e13d003aa1328504368d63f0e44cbf42.png?size=128")
+    emb1.set_footer(text="", icon_url=(user.author.url))
     return emb1
 
 @bot.command(pass_context=True)
@@ -271,4 +271,5 @@ async def announce(ctx, message, everyone):
                 await bot.send_message(bot.get_channel("291936456794963968"), embed=make_embed1(ctx.message.author, message))
     else:
         await bot.say("geen toegang")
+	
 bot.run(os.environ.get('TOKEN'))

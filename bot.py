@@ -187,7 +187,7 @@ async def help(ctx):
         embed.add_field(name="resume", value="liedje gaat verder", inline=False)
         embed.add_field(name="stop", value="stopt de muziek", inline=False)
         embed.add_field(name="changelog", value="geeft je een lijst van de laatste update", inline=False)
-	await bot.send_message(author, embed=embed)
+        await bot.send_message(author, embed=embed)
 #----------------------------------------------------------------------------------------------------------------
 #admin cmds
 #------------------------------------------------------

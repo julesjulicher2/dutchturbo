@@ -246,12 +246,11 @@ async def serverlist(ctx):
             embed.add_field(name=str(tmp), value=i.name, inline=False)
             tmp += 1
         await bot.say(embed=embed)
-
 def make_embed1(Author, Announcement):
-    emb1 =discord.Embed(title=f"`{Announcement}`", colour=0xff0000)
-    emb1.set_author(name=f"By: `{Author}`")
+    emb1 =discord.Embed(description=f"`{Announcement}`", colour=0xff0000)
+    emb1.set_author(name=f"Announcement")
     emb1.set_thumbnail(url="https://cdn.discordapp.com/avatars/520988858700005386/8170a9c2e6ddd51555f7dacc78faff83.png?size=128")
-    emb1.set_footer(text="", icon_url=(user.author.url))
+    emb1.set_footer(text=f"By: `{Author}`", icon_url=message.author.avatar_url)
     return emb1
 
 @bot.command(pass_context=True)

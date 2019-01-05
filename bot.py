@@ -255,16 +255,25 @@ def make_embed1(ctx, Author, Announcement):
 
 @bot.command(pass_context=True)
 async def announce(ctx, message, everyone):
+    
+    channel = ctx.message.channel
+    writer = ctx.message.author
+    
     if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == demon333 or ctx.message.author.id == onheil or ctx.message.author.id == freshness or ctx.message.author.id == deadmau5 or ctx.message.author.id == optic or ctx.message.author.id == Greyaligator or ctx.message.author.id == gideon or ctx.message.author.id == mast3beer or ctx.message.author.id == ikayser or ctx.message.author.id == lordhugo or ctx.message.author.id == helpmai or ctx.message.author.id == exia or ctx.message.author.id == draynor or ctx.message.author.id == heiligekip or ctx.message.author.id == nneo or ctx.message.author.id == thabaws or ctx.message.author.id == jeffrey or ctx.message.author.id == curious:
+        
         if everyone == "yes":
+            embed = discord.Embed(description=f"`{message}`", colour=0xff0000)
+            embed.set_author(name=f"Announcement")
+            embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/520988858700005386/8170a9c2e6ddd51555f7dacc78faff83.png?size=128")
+            embed.set_footer(text=f"By: `{author}`", icon_url=writer.avatar_url)
+            await bot.send_message(channel, embed=embed)
+            
             await bot.send_message(bot.get_channel("291936456794963968"), "@everyone")
-            await bot.send_message(bot.get_channel("291936456794963968"), embed=make_embed1(ctx.message.author, message))
-        else:
-            if everyone != "no":
-                bot.send_message(ctx.message.channel, "You have to say yes or no at the end.")
-            else:
-                await bot.send_message(bot.get_channel("291936456794963968"), embed=make_embed1(ctx.message.author, message))
+            await bot.send_message(bot.get_channel("291936456794963968"), embed=embed))
+        elif everyone == "no":
+            bot.send_message(channel, "You have to say yes or no at the end.")
     else:
-        await bot.say("geen toegang")
+        await bot.send_message(channel, "geen toegang")
+        message = ctx.message.author
 	
 bot.run(os.environ.get('TOKEN'))

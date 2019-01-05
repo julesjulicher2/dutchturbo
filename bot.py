@@ -12,6 +12,14 @@ Client = discord.Client
 bot = commands.Bot(command_prefix="dt!")
 bot.remove_command('help')
 
+@bot.event
+async def on_ready():
+    print("this bot is ready to go and have a test run")
+    print(bot.user.name)
+    print(bot.user.id)
+    print(discord.__version__)
+    await loop()
+
 #------------------------------------------------------
 #ids
 julesjulicher2 = "266540652865519617"
@@ -54,18 +62,6 @@ async def loop():
         await asyncio.sleep(5)
         await bot.change_presence(game=discord.Game(name="geniet van de dag", type=2))
         await asyncio.sleep(5)
-
-
-@bot.event
-async def on_ready():
-    print("this bot is ready to go and have a test run")
-    print(bot.user.name)
-    print(bot.user.id)
-    print(discord.__version__)
-    await loop()
-
-  
-
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -252,7 +248,7 @@ async def serverlist(ctx):
         await bot.say(embed=embed)
 
 def make_embed1(Author, Announcement):
-    emb1 =discord.Embed(title=description=f"`{Announcement}`", colour=0xff0000)
+    emb1 =discord.Embed(title=f"`{Announcement}`", colour=0xff0000)
     emb1.set_author(name=f"By: `{Author}`")
     emb1.set_thumbnail(url="https://cdn.discordapp.com/avatars/520988858700005386/8170a9c2e6ddd51555f7dacc78faff83.png?size=128")
     emb1.set_footer(text="", icon_url=(user.author.url))

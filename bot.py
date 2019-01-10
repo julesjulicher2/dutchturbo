@@ -58,10 +58,8 @@ async def loop():
         await asyncio.sleep(5)
         await bot.change_presence(game=discord.Game(name="vergeet niet te cappen", type=2))
         await asyncio.sleep(5)
-        await bot.change_presence(game=discord.Game(name="happy runescaping", type=2))
-        await asyncio.sleep(5)
-        await bot.change_presence(game=discord.Game(name="geniet van de dag", type=2))
-        await asyncio.sleep(5)
+        await bot.change_presence(game=discord.Game(name="jeroen heeft weer een laptop!", type=2))
+        
 
 @bot.event
 async def on_command_error(ctx, error):

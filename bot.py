@@ -23,7 +23,7 @@ async def on_ready():
 @bot.event
 async def on_member_join(member):
     role = discord.utils.get(member.server.roles, name = ("🙊gasten🙊")
-    Await bot.add_roles(member, role)
+    await bot.add_roles(member, role)
 #------------------------------------------------------
 #ids
 julesjulicher2 = "266540652865519617"

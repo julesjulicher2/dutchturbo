@@ -111,7 +111,20 @@ async def ping(ctx):
 @bot.command(pass_context=True)
 async def changelog(ctx):
     await bot.say("help is aangepast")
-
+@bot.command(pass_context=True)
+async def setpfp(ctx, url):
+    if ctx.message.author.id == "someid" or ctx.message.author.id == "someoneelsesid":
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(url) as r:
+                    data = await r.read()
+            await bot.edit_profile(avatar=data)
+            await bot.say("yep")
+        except:
+            discord.errors.Forbidden
+            
+    else:
+        await bot.say("nop")
 #music cmds___________________________________________________
 @bot.command(pass_context=True)
 async def join(ctx):

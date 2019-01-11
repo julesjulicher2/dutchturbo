@@ -21,7 +21,7 @@ async def on_ready():
     print(discord.__version__)
     await loop()
 @bot.event
-Async def on_member_join(member):
+async def on_member_join(member):
     role = discord.utils.get(member.server.roles, name = ("🙊gasten🙊")
     Await bot.add_roles(member, role)
 #------------------------------------------------------

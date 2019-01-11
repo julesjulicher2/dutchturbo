@@ -5,6 +5,7 @@ from discord.ext import commands
 import asyncio
 import time
 import random
+import aiohttp
 import os
 import youtube_dl
 

@@ -113,7 +113,7 @@ async def changelog(ctx):
     await bot.say("help is aangepast")
 @bot.command(pass_context=True)
 async def setpfp(ctx, url):
-    if ctx.message.author.id == "someid" or ctx.message.author.id == "someoneelsesid":
+    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey:
         try:
             async with aiohttp.ClientSession() as session:
                 async with session.get(url) as r:

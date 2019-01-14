@@ -69,7 +69,7 @@ async def loop():
 async def on_command_error(ctx, error):
     if isinstance(ctx, discord.ext.commands.errors.CommandNotFound):
         embed = discord.Embed(title="Error:",
-                              description="Damm it! I cant find that! Try `dv!help`.",
+                              description="Damm it! I cant find that! Try `dt!help`.",
                               colour=0xff0000)
         await bot.send_message(error.message.channel, embed=embed)
     else:
@@ -117,7 +117,7 @@ async def changelog(ctx):
     await bot.say("help is aangepast")
 @bot.command(pass_context=True)
 async def setpfp(ctx, url):
-    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey:
+    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey or ctx.message.author.id == freshness:
         try:
             async with aiohttp.ClientSession() as session:
                 async with session.get(url) as r:

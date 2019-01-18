@@ -205,7 +205,7 @@ async def help(ctx):
         embed.add_field(name="kick", value="kick de gementionde persoon **mod only**", inline=False)
         embed.add_field(name="reboot", value="precies wat het zegt, **dev only**", inline=False)
         embed.add_field(name="remove_cmd", value="verwijdert een cmd, **dev only**", inline=False)
-        embed.add_field(name="announce", value="gebruik is als volg, dubbele haakjes hier announcement hier dubbele haakjes hier, hier ja of nee of je iedereen wilt mentionen ***mod only**", inline=False)
+        embed.add_field(name="sendm", value="prank cmd voor jeffrey, jobby en freshness", inline=False)
         await bot.send_message(author, embed=embed)
     else:
         author = ctx.message.author
@@ -269,24 +269,12 @@ def make_embed1(ctx, Author, Announcement):
     return emb1
 
 @bot.command(pass_context=True)
-async def announce(ctx, message, everyone):
-    
-    channel = ctx.message.channel
-    writer = ctx.message.author
-    
-    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == demon333 or ctx.message.author.id == onheil or ctx.message.author.id == freshness or ctx.message.author.id == deadmau5 or ctx.message.author.id == optic or ctx.message.author.id == Greyaligator or ctx.message.author.id == gideon or ctx.message.author.id == mast3beer or ctx.message.author.id == ikayser or ctx.message.author.id == lordhugo or ctx.message.author.id == helpmai or ctx.message.author.id == exia or ctx.message.author.id == draynor or ctx.message.author.id == heiligekip or ctx.message.author.id == nneo or ctx.message.author.id == thabaws or ctx.message.author.id == jeffrey or ctx.message.author.id == curious:
-        
-        if everyone == "yes":
-            embed = discord.Embed(description=f"`{message}`", colour=0xff0000)
-            embed.set_author(name=f"Announcement")
-            embed.set_thumbnail(url=ctx.message.server.icon_url)
-            embed.set_footer(text=f"By: `{writer}`", icon_url=writer.avatar_url)
-            await bot.send_message(bot.get_channel("291936456794963968"), "@everyone")
-            await bot.send_message(bot.get_channel("291936456794963968"), embed=embed)
-        elif everyone == "no":
-            bot.send_message(channel, "You have to say yes or no at the end.")
-        else:
-            await bot.send_message(channel, "geen toegang")
-            message = ctx.message.author
+async def sendm(ctx, ch, *, msg):
+    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey or ctx.message,author.id == freshness:
+        channel = bot.get_channel(ch)
+        if channel:
+            await bot.send_message(channel, msg)
+    else:
+        await bot.say('I can not find that channel')
 	
 bot.run(os.environ.get('TOKEN'))

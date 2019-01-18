@@ -270,7 +270,7 @@ def make_embed1(ctx, Author, Announcement):
 
 @bot.command(pass_context=True)
 async def sendm(ctx, ch, *, msg):
-    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey or ctx.message,author.id == freshness:
+    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey or ctx.message.author.id == freshness:
         channel = bot.get_channel(ch)
         if channel:
             await bot.send_message(channel, msg)

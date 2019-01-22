@@ -269,6 +269,15 @@ def make_embed1(ctx, Author, Announcement):
     return emb1
 
 @bot.command(pass_context=True)
+async def role(ctx, member: discord.Member, rank: str):
+    if ctx.message.author.id == "266540652865519617" or ctx.message.author.id == "371390873889669120":
+        role = discord.utils.get(ctx.message.server.roles, name=rank)
+        await bot.add_roles(member, role)
+        await bot.say("done")
+    else:
+        await bot.say("geen toegang")
+
+@bot.command(pass_context=True)
 async def sendm(ctx, ch, *, msg):
     if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey or ctx.message.author.id == freshness:
         channel = bot.get_channel(ch)

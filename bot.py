@@ -192,7 +192,7 @@ async def add(ctx, url):
 	
 #_______________________________________
 @bot.command(pass_context=True)
-async def (ctx):
+async def help(ctx):
     if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == demon333 or ctx.message.author.id == onheil or ctx.message.author.id == freshness or ctx.message.author.id == deadmau5 or ctx.message.author.id == optic or ctx.message.author.id == Greyaligator or ctx.message.author.id == gideon or ctx.message.author.id == mast3beer or ctx.message.author.id == ikayser or ctx.message.author.id == lordhugo or ctx.message.author.id == helpmai or ctx.message.author.id == exia or ctx.message.author.id == draynor or ctx.message.author.id == heiligekip or ctx.message.author.id == nneo or ctx.message.author.id == thabaws or ctx.message.author.id == jeffrey or ctx.message.author.id == curious:
         author = ctx.message.author
         embed = discord.Embed(colour = 0xff0000)

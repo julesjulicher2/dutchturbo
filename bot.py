@@ -112,9 +112,11 @@ async def ping(ctx):
         t2 = time.perf_counter()
         await bot.say("Ping: {}ms".format(round((t2-t1)*1000)))
         await bot.delete_message(tmp)
+
 @bot.command(pass_context=True)
 async def changelog(ctx):
-    await bot.say("help is aangepast")
+    await bot.say("nickme is toegevoegd")
+
 @bot.command(pass_context=True)
 async def setpfp(ctx, url):
     if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == jeffrey or ctx.message.author.id == freshness:
@@ -129,6 +131,11 @@ async def setpfp(ctx, url):
             
     else:
         await bot.say("nop")
+
+@bot.command(pass_context=True)
+async def nickme(ctx, name):
+    await bot.change_nickname(ctx.message.author , name)
+    await bot.send_message(ctx.message.channel, f"You've been nicknamed to: {name}")
 #music cmds___________________________________________________
 @bot.command(pass_context=True)
 async def join(ctx):
@@ -185,7 +192,7 @@ async def add(ctx, url):
 	
 #_______________________________________
 @bot.command(pass_context=True)
-async def help(ctx):
+async def (ctx):
     if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == demon333 or ctx.message.author.id == onheil or ctx.message.author.id == freshness or ctx.message.author.id == deadmau5 or ctx.message.author.id == optic or ctx.message.author.id == Greyaligator or ctx.message.author.id == gideon or ctx.message.author.id == mast3beer or ctx.message.author.id == ikayser or ctx.message.author.id == lordhugo or ctx.message.author.id == helpmai or ctx.message.author.id == exia or ctx.message.author.id == draynor or ctx.message.author.id == heiligekip or ctx.message.author.id == nneo or ctx.message.author.id == thabaws or ctx.message.author.id == jeffrey or ctx.message.author.id == curious:
         author = ctx.message.author
         embed = discord.Embed(colour = 0xff0000)
@@ -193,6 +200,7 @@ async def help(ctx):
         embed.add_field(name="serverinfo", value="geeft informatie over de server", inline = False)
         embed.add_field(name="info", value="geeft informatie over een persoon. gebruik dt!info @persoon", inline = False)
         embed.add_field(name="ping", value="x aantal ms vertraging", inline=False)
+        embed.add_field(name="nickme", value="kun je je nickname veranderen", inline = False)
         embed.add_field(name="join", value="de bot joint de voice channel waar je in zit", inline=False)
         embed.add_field(name="leave", value="bot verlaat je voice channel", inline=False)
         embed.add_field(name="play", value="speelt een liedje van yt, gebruik play urlhere", inline=False)
@@ -221,6 +229,7 @@ async def help(ctx):
         embed.add_field(name="resume", value="liedje gaat verder", inline=False)
         embed.add_field(name="stop", value="stopt de muziek", inline=False)
         embed.add_field(name="changelog", value="geeft je een lijst van de laatste update", inline=False)
+        embed.add_field(name="nickme", value="kun je je nickname veranderen", inline = False)
         await bot.send_message(author, embed=embed)
 #----------------------------------------------------------------------------------------------------------------
 #admin cmds

@@ -133,7 +133,7 @@ async def setpfp(ctx, url):
         await bot.say("nop")
 
 @bot.command(pass_context=True)
-async def nickme(ctx, name):
+async def nickme(ctx, *, name):
     await bot.change_nickname(ctx.message.author , name)
     await bot.send_message(ctx.message.channel, f"You've been nicknamed to: {name}")
 #music cmds___________________________________________________

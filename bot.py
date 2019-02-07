@@ -62,7 +62,7 @@ async def loop():
         await asyncio.sleep(5)
         await bot.change_presence(game=discord.Game(name="vergeet niet te cappen", type=2))
         await asyncio.sleep(5)
-        await bot.change_presence(game=discord.Game(name="ga pitten no livers", type=2))
+        await bot.change_presence(game=discord.Game(name="ga pitten no lifers", type=2))
         await asyncio.sleep(5)
 
 @bot.event

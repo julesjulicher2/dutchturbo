@@ -210,7 +210,7 @@ async def help(ctx):
         embed.add_field(name="changelog", value="geeft je een lijst van de laatste update", inline=False)
         #admin cmds
         embed.add_field(name="serverlist", value="**jobby only**", inline=False)
-        embed.add_field(name="kick", value="kick de gementionde persoon **mod only**", inline=False)
+        
         embed.add_field(name="reboot", value="precies wat het zegt, **dev only**", inline=False)
         embed.add_field(name="remove_cmd", value="verwijdert een cmd, **dev only**", inline=False)
         embed.add_field(name="sendm", value="prank cmd voor jeffrey, jobby en freshness", inline=False)
@@ -236,14 +236,14 @@ async def help(ctx):
 #----------------------------------------------------------------------------------------------------------------
 @bot.command(pass_context = True)
 async def kick(ctx, member: discord.Member):
-    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == demon333 or ctx.message.author.id == onheil or ctx.message.author.id == freshness or ctx.message.author.id == deadmau5 or ctx.message.author.id == optic or ctx.message.author.id == Greyaligator or ctx.message.author.id == gideon or ctx.message.author.id == mast3beer or ctx.message.author.id == ikayser or ctx.message.author.id == lordhugo or ctx.message.author.id == helpmai or ctx.message.author.id == exia or ctx.message.author.id == draynor or ctx.message.author.id == heiligekip or ctx.message.author.id == nneo or ctx.message.author.id == thabaws or ctx.message.author.id == jeffrey or ctx.message.author.id == curious:
+    if ctx.message.author.id == julesjulicher2:
         try:
             await bot.say(":boot: bye!""{}".format(member.mention))
             await bot.kick(member)
         except discord.errors.Forbidden:
             await bot.say(":x: error kan niet doen!, controleer of de bot boven de rang staat van de gene die je kickt")
     else:
-        await bot.say("geen toegang")
+        await bot.say("cmd bestaat niet meer")
 
 
 @bot.command(pass_context=True)

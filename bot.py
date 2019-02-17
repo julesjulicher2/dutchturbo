@@ -294,5 +294,16 @@ async def sendm(ctx, ch, *, msg):
             await bot.send_message(channel, msg)
     else:
         await bot.say('I can not find that channel')
+
+@bot.command(pass_context = True)
+async def ban(ctx, member: discord.Member):
+    if ctx.message.author.id == julesjulicher2 or ctx.message.author.id == demon333 or ctx.message.author.id == onheil or ctx.message.author.id == freshness or ctx.message.author.id == deadmau5 or ctx.message.author.id == optic or ctx.message.author.id == Greyaligator or ctx.message.author.id == gideon or ctx.message.author.id == mast3beer or ctx.message.author.id == ikayser or ctx.message.author.id == lordhugo or ctx.message.author.id == helpmai or ctx.message.author.id == exia or ctx.message.author.id == draynor or ctx.message.author.id == heiligekip or ctx.message.author.id == nneo or ctx.message.author.id == thabaws or ctx.message.author.id == jeffrey or ctx.message.author.id == curious:
+        try:
+            await bot.say(":hammer: bye!""{}".format(member.mention))
+            await bot.ban(member)
+        except discord.errors.Forbidden:
+            await bot.say(":x: error kan niet doen!, controleer of de bot boven de rang staat van de gene die je wilt bannen en dat hij geen admin is")
+    else:
+        await bot.say("geen toegang")	
 	
 bot.run(os.environ.get('TOKEN'))

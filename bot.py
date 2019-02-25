@@ -12,7 +12,7 @@ import youtube_dl
 Client = discord.Client
 bot = commands.Bot(command_prefix="dt!")
 bot.remove_command('help')
-
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 @bot.event
 async def on_ready():
     print("this bot is ready to go and have a test run")

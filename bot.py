@@ -13,6 +13,7 @@ import psycopg2
 Client = discord.Client
 bot = commands.Bot(command_prefix="dt!")
 bot.remove_command('help')
+DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 @bot.event
 async def on_ready():

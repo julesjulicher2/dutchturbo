@@ -8,6 +8,7 @@ import random
 import aiohttp
 import os
 import youtube_dl
+import psycopg2
 
 Client = discord.Client
 bot = commands.Bot(command_prefix="dt!")

@@ -27,26 +27,7 @@ async def on_member_join(member):
     role = discord.utils.get(member.server.roles, name = "🙊Gasten🙊")
     await bot.add_roles(member, role)
 #------------------------------------------------------
-#ids
-julesjulicher2 = "266540652865519617"
-demon333 = "304335595637964811"
-onheil = "210016781790740481"
-freshness = "371390873889669120"
-deadmau5= "272370438334578690"
-optic = "261489812807090176"
-Greyaligator = "125251854811660288"
-gideon = "225615881009496064"
-mast3beer = "325614257544757249"
-ikayser = "268813802391207937"
-lordhugo = "267061903035990017"
-helpmai = "274953456085893121"
-exia = "262731316615708683"
-draynor = "311210142249123840"
-heiligekip = "306437934838579200"
-nneo = "146037858212249600"
-thabaws = "344868565209448448"
-jeffrey = "343013889283457025"
-curious = "297725476821008384"
+#
 #____________________________________________
 
 players = {}
